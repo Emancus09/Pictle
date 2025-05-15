@@ -37,13 +37,17 @@ function MovieCard(props: {movieId: string}) {
       .catch(err => console.error(err));
 
   return (
-    <div className='rounded bg-gray-100 grid grid-cols-2 grid-rows-4 gap-4 p-4'>
-     <div className='bg-gray-300 rounded text-center content-center text-4xl truncate w-64'>{movieTitle}</div>
-     <div className='bg-gray-300 rounded text-center content-center'>{movieDirector}</div>
-     <img className="w-64 row-span-4 bg-gray-300 rounded" src={movieThumbnail}/>
-     <div className='bg-gray-300 rounded text-center content-center'>{movieDate}</div>
-     <div className='bg-gray-300 rounded text-center content-center'>{movieGenre}</div>
-     <div className='bg-gray-300 rounded text-center content-center'>{movieCountryOfOrigin}</div>
+    <div className='w-128 flex gap-4 p-4'>
+      <div className='flex-1/2 flex flex-col gap-4'>
+        <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieTitle}</div>
+        <img className="h-68 bg-gray-300 rounded object-contain" src={movieThumbnail}/>
+      </div>
+      <div className='flex-1/2 flex flex-col gap-4'>
+        <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieDirector}</div>
+        <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieDate}</div>
+        <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieGenre}</div>
+        <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieCountryOfOrigin}</div>
+      </div>
     </div>
   )
 }
