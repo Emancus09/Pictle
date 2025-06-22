@@ -57,39 +57,41 @@ function SearchBar(props: {onSelectMovie: (id: string) => void}) {
   });
 
   return (
-    <div 
-      className="w-full relative"
-      onKeyDown={(e) => handleOnKeyDown(e.key)}
-    >
-      <label htmlFor="search" className="sr-only">
-        Search
-      </label>
-      <div className="absolute inset-3 flex items-center pointer-events-none">
-          <svg 
-            className="w-4 h-4 text-gray-500"
-            fill="none"
-            viewBox="0 0 20 20"
-          >
-            <path 
-              stroke="currentColor" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth="2" 
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-            />
-          </svg>
-      </div>
-      <input 
-        type="search" 
-        id="search" 
-        className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" 
-        placeholder="Name a movie..."
-        autoComplete="off"
-        onChange={(e) => setSearchText(e.target.value)}
-        value={searchText}
-      />
+    <div className="w-full h-full flex flex-col gap-2">
       <div 
-        className="absolute flex flex-col items-stretch mt-1 z-1 w-full max-h-32 bg-gray-50 border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300" 
+        className="relative"
+        onKeyDown={(e) => handleOnKeyDown(e.key)}
+      >
+        <label htmlFor="search" className="sr-only">
+          Search
+        </label>
+        <div className="absolute inset-3 flex items-center pointer-events-none">
+            <svg 
+              className="w-4 h-4 text-gray-500"
+              fill="none"
+              viewBox="0 0 20 20"
+            >
+              <path 
+                stroke="currentColor" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+              />
+            </svg>
+        </div>
+        <input 
+          type="search" 
+          id="search" 
+          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" 
+          placeholder="Name a movie..."
+          autoComplete="off"
+          onChange={(e) => setSearchText(e.target.value)}
+          value={searchText}
+        />
+      </div>
+      <div 
+        className="flex flex-col items-stretch w-full flex-grow bg-gray-50 border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300" 
         role="listbox" 
         data-hs-combo-box-output=""
       >
@@ -101,9 +103,9 @@ function SearchBar(props: {onSelectMovie: (id: string) => void}) {
             ref={index === focusedIndex ? focusedElement : undefined}
           >
             <img
-             className="h-8 w-8 rounded-lg"
-             src={`https://image.tmdb.org/t/p/w500${option.poster_path}`}
-             />
+            className="h-8 w-8 rounded-lg"
+            src={`https://image.tmdb.org/t/p/w500${option.poster_path}`}
+            />
             {option.original_title}
           </button>
         )}

@@ -37,10 +37,10 @@ function MovieCard(props: {movieId: string}) {
       .catch(err => console.error(err));
 
   return (
-    <div className='w-128 flex gap-4 p-4'>
+    <div className='flex gap-4 border border-gray-300 rounded-lg bg-gray-50 p-2'>
       <div className='flex-1/2 flex flex-col gap-4'>
         <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieTitle}</div>
-        <img className="h-68 bg-gray-300 rounded object-contain" src={movieThumbnail}/>
+        <img className="h-68 bg-gray-300 rounded object-cover" src={movieThumbnail}/>
       </div>
       <div className='flex-1/2 flex flex-col gap-4'>
         <div className='h-20 bg-gray-300 rounded text-center content-center'>{movieDirector}</div>
